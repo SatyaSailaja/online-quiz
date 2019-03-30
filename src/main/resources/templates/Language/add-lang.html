@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body class="container">
+
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+<nav class="user-nav">
+
+    <a href="/home">Home</a> |
+    <a href="/language">Quiz Topics</a> |
+    <a href="/makeaquiz">Make A Quiz</a> |
+    <a href="/question">Question</a>  |
+    <a href="/takeaquiz">Take A Quiz</a> |
+    <a href="/logout">Log Out</a> |  <p style="white-space:nowrap">Logged in as <span th:text="${user.username}"></span></p>
+
+
+
+
+</nav>
+
+<h2 th:text="${title}">Default Title</h2>
+
+
+<form method="post" th:object="${language}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+
+
+    </div>
+
+        <input type="submit" value="Add Topic" />
+</form>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("makeaquiz")
-public class MakeAQuizController {
+public class MakeAQuizController extends AbstractController{
 
     @Autowired
     private MakeAQuizDao makeAQuizDao;
@@ -32,7 +32,7 @@ public class MakeAQuizController {
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayMakeAQuizForm(Model model) {
-        model.addAttribute("title", "Add Subject");
+        model.addAttribute("title", "Add Language");
         return "makeaquiz/add";
     }
 
@@ -43,26 +43,8 @@ public class MakeAQuizController {
     }
 
 
-    @RequestMapping(value = "view/{id}", method = RequestMethod.GET)
-    public String view(Model model, @PathVariable int id) {
-
-        MakeAQuiz makeAQuiz = makeAQuizDao.findOne(id);
-
-        model.addAttribute("title", makeAQuiz.getSubjectName());
-        model.addAttribute("menu", makeAQuiz);
-        return "menu/view";
-    }
-
-    @RequestMapping(value = "add-question/{subjectId}", method = RequestMethod.GET)
-    public String addQuestions(Model model, @PathVariable int subjectId) {
-
-        MakeAQuiz makeAQuiz = makeAQuizDao.findOne(subjectId);
-
-        model.addAttribute("title", "Add item to menu: " + makeAQuiz.getSubjectName());
 
 
-        return "menu/add-question";
-    }
 
 }
 

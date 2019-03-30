@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+
+</head>
+<body class="container">
+
+<nav class="user-nav">
+<a href="/home">Home</a> |
+<a href="/language">Quiz Topics</a> |
+<a href="/makeaquiz">Make A Quiz</a> |
+<a href="/question">Question</a>  |
+<a href="/takeaquiz">Take A Quiz</a>   |
+<a href="/logout">Log Out</a>    |
+<p>Logged in as <span th:text="${user.username}"></span></p>
+</nav>
+
+<h2 th:text="${title}">Default Title</h2>
+
+
+<form method="post" th:object="${question}">
+    <div class="form-group">
+        <label th:for="quiz">Question :</label>
+        <textarea class="form-control" rows="3" th:field="*{quiz}"></textarea>
+        <span th:errors="*{quiz}" class="error"></span>
+
+        <label th:for="choice1">Option 1 :</label>
+        <input class="form-control" th:field="*{choice1}" />
+        <span th:errors="*{choice1}" class="error"></span>
+
+        <label th:for="choice2">Option 2 :</label>
+        <input class="form-control" th:field="*{choice2}" />
+        <span th:errors="*{choice2}" class="error"></span>
+
+        <label th:for="choice3">Option 3 :</label>
+        <input class="form-control" th:field="*{choice3}" />
+        <span th:errors="*{choice3}" class="error"></span>
+
+        <label th:for="choice4">Option 4 :</label>
+        <input class="form-control" th:field="*{choice4}" />
+        <span th:errors="*{choice4}" class="error"></span>
+
+        <label th:for="answer">Answer :</label>
+        <input class="form-control" th:field="*{answer}" />
+        <span th:errors="*{answer}" class="error"></span>
+
+    </div>
+    <div class="form-group">
+        <label th:for="name">Language</label>
+        <select name="languageId">
+            <option th:each="language : ${languages}"
+                    th:text="${language.name}"
+                    th:value="${language.id}"></option>
+        </select>
+    </div>
+
+    <input type="submit" value="Add Question" />
+
+</form>
+
+</body>
+</html>

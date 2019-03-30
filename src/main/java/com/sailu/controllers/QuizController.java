@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 
 @Controller
-@RequestMapping(value = "quiz")
-public class QuizController {
+@RequestMapping("home")
+public class QuizController  extends AbstractController{
 
     static ArrayList<String> quizes = new ArrayList<>();
 
@@ -20,14 +20,14 @@ public class QuizController {
         model.addAttribute("quizes", quizes);
         model.addAttribute("title", "My Quiz");
 
-        return "quiz/index";
+        return "home/index";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String dispalyNameForm(Model model){
 
         model.addAttribute("title","Add Person");
-        return "quiz/add";
+        return "home/add";
 
     }
     @RequestMapping(value = "add", method = RequestMethod.POST)
