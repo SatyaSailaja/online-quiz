@@ -1,12 +1,10 @@
 package com.sailu.models.forms;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 //Cheese
@@ -43,6 +41,8 @@ public class Question {
 
     @ManyToOne
     private Language language;
+
+
 
     public Question(){ }
 
@@ -119,5 +119,7 @@ public class Question {
     public void setLanguage(Language language) {
         this.language = language;
     }
+
+
 }
 

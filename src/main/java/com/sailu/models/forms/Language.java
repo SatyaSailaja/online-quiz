@@ -21,8 +21,9 @@ public class Language {
     private int id;
 
     @NotNull
-    @Size(min=1, max=15)
+    @Size(min = 1, max = 15)
     private String name;
+
 
     @OneToMany
     @JoinColumn(name = "language_id")
@@ -33,8 +34,13 @@ public class Language {
 
         this.name = name;
     }
-    public Language (){}
 
+    public Language() {
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
 
     public int getId() {
         return id;
@@ -51,4 +57,5 @@ public class Language {
     public void setName(String name) {
         this.name = name;
     }
+
 }
