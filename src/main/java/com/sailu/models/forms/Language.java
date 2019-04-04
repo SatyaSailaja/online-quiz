@@ -21,7 +21,7 @@ public class Language {
     private int id;
 
     @NotNull
-    @Size(min = 1, max = 15)
+    @Size(min=1, message = "Topic must not be empty")
     private String name;
 
 

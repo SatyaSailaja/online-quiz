@@ -22,6 +22,7 @@
 </ul>-->
 
 
+<!--
 
 <table class="table">
 
@@ -45,10 +46,28 @@
     </tr>
 
 </table>
+-->
 
+<form >
+<ol>
+  <div th:each="question : ${questions}">
 
+          <li th:text="${question.getQuiz()}"></li>
 
+      <input type="radio" name="choice1" th:value= "${question.getChoice1()}" th.id = "${question.getChoice1()}"/>
+      <label th:for="${question.getChoice1()}" th:text="${question.getChoice1()}"></label>
 
+        <input type="radio" name="choice2" th:value= "${question.getChoice2()}" th.id = "${question.getChoice2()}"/>
+        <label th:for="${question.getChoice2()}" th:text="${question.getChoice2()}"></label>
 
+        <input type="radio" name="choice3" th:value= "${question.getChoice3()}" th.id = "${question.getChoice3()}"/>
+        <label th:for="${question.getChoice3()}" th:text="${question.getChoice3()}"></label>
+
+      <input type="radio" name="choice4" th:value= "${question.getChoice4()}" th.id = "${question.getChoice4()}"/>
+      <label th:for="${question.getChoice4()}" th:text="${question.getChoice4()}"></label>
+  </div>
+</ol>
+    <input type="submit" value=" Next " />
+</form>
 </body>
 </html>

@@ -54,5 +54,14 @@ public class TakeAQuizController extends AbstractController{
 */
         return "takeaquiz/view-questions";
     }
+    @RequestMapping(value = "Next", method = RequestMethod.POST)
+    public String processQuestions(@RequestParam int[] languagesIds) {
+
+        for (int languageId : languagesIds) {
+            languageDao.delete(languageId);
+        }
+
+        return "redirect:";
+    }
 
 }
