@@ -48,26 +48,32 @@
 </table>
 -->
 
-<form >
+<form action="#" method="post" th:action="@{/takeaquiz/result}">
 <ol>
+
   <div th:each="question : ${questions}">
 
-          <li th:text="${question.getQuiz()}"></li>
+      <li th:text="${question.getQuiz()}"></li>
 
-      <input type="radio" name="choice1" th:value= "${question.getChoice1()}" th.id = "${question.getChoice1()}"/>
+      <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice1()}" th.id = "${question.getChoice1()}" />
       <label th:for="${question.getChoice1()}" th:text="${question.getChoice1()}"></label>
 
-        <input type="radio" name="choice2" th:value= "${question.getChoice2()}" th.id = "${question.getChoice2()}"/>
+        <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice2()}" th.id = "${question.getChoice2()}"/>
         <label th:for="${question.getChoice2()}" th:text="${question.getChoice2()}"></label>
 
-        <input type="radio" name="choice3" th:value= "${question.getChoice3()}" th.id = "${question.getChoice3()}"/>
+        <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice3()}" th.id = "${question.getChoice3()}"/>
         <label th:for="${question.getChoice3()}" th:text="${question.getChoice3()}"></label>
 
-      <input type="radio" name="choice4" th:value= "${question.getChoice4()}" th.id = "${question.getChoice4()}"/>
+      <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice4()}" th.id = "${question.getChoice4()}"/>
       <label th:for="${question.getChoice4()}" th:text="${question.getChoice4()}"></label>
+
+      <input type="hidden" name="answer" th:value="${question.getAnswer()}" th.id ="${question.getAnswer()}" />
+
+
   </div>
 </ol>
-    <input type="submit" value=" Next " />
+
+    <input type="submit" value="Submit"/>
 </form>
 </body>
 </html>

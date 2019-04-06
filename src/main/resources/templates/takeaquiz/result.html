@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav class="user-nav">
+    <a href="/home">Home</a> |
+    <a href="/language">Quiz Topics</a> |
+    <a href="/question">Quiz Questions</a>  |
+    <a href="/takeaquiz">Take A Quiz</a>   |
+    <a href="/logout">Log Out</a>    |
+    <p>Logged in as <span th:text="${user.username}"></span></p>
+</nav>
+
+
+
+<h2 th:text="${title}">Default Title</h2>
+
+
+
+
+
+</body>
+</html>

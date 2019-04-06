@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("takeaquiz")
-public class TakeAQuizController extends AbstractController{
+public class TakeAQuizController extends AbstractController {
 
     @Autowired
     private QuestionDao questionDao;
 
     @Autowired
-    private LanguageDao  languageDao;
+    private LanguageDao languageDao;
 
 
     @RequestMapping(value = "")
@@ -33,11 +33,12 @@ public class TakeAQuizController extends AbstractController{
 
         return "takeaquiz/index";
     }
-    @RequestMapping(value = "view-questions/{id}", method = RequestMethod.GET)
+
+    @RequestMapping(value = "view-questions/{id}")
     public String viewQuestions(Model model, @PathVariable int id) {
 
 
-        Language  language  =  languageDao.findOne(id);
+        Language language = languageDao.findOne(id);
 
         model.addAttribute("title", language.getName());
         model.addAttribute("questions", language.getQuestions());
@@ -54,14 +55,23 @@ public class TakeAQuizController extends AbstractController{
 */
         return "takeaquiz/view-questions";
     }
-    @RequestMapping(value = "Next", method = RequestMethod.POST)
-    public String processQuestions(@RequestParam int[] languagesIds) {
 
-        for (int languageId : languagesIds) {
-            languageDao.delete(languageId);
+    @RequestMapping(value = "result", method = RequestMethod.POST)
+    public String  processViewQuestions(Model model) {
+
+
+
+        model.addAttribute("title", "Quiz Result");
+
+
+       /*for (String choice : choices) {
+            System.out.println("*******************************************************");
+
+            System.out.println(choice);
+
         }
-
-        return "redirect:";
+*/
+        return "takeaquiz/result";
     }
 
 }
