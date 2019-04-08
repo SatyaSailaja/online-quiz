@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 
-<body class="container">
+<body class="container" background="/css/Blog-background.png">
 
 <nav class="user-nav">
     <a href="/home">Home</a> |
@@ -15,11 +20,26 @@
 
 
 
-<h2 th:text="${title}">Default Title</h2>
+<!--<h2 th:text="${title}">Default Title</h2>-->
 
+<h2 th:text="${count}"></h2>
 
+<h4><p> <span th:text="${user.username}"></span> Choices</p></h4>
+  <div th:each="choice : ${choices}">
+     <!-- <span th:text="${choice.key}"></span>-->
 
+      <span th:text="${choice.value}"></span>
+  </div>
 
+<h4> Actual Answers </h4>
+<div th:each="questionSet : ${questionSets}">
+    <!-- <div th:text="${questionSet.key}"></div>-->
+    <div th:text="${questionSet.value}"></div>
+</div>
 
+<div th:each="quizQuestion : ${quizQuestions}">
+
+    <div th:text="${quizQuestion}"></div>
+</div>
 </body>
 </html>

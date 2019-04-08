@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
-<body class="container">
+<body class="container" background="/css/Blog-background.png">
 
 
 
@@ -48,28 +48,27 @@
 </table>
 -->
 
-<form action="#" method="post" th:action="@{/takeaquiz/result}">
+<form action="#" method="post" th:action="@{/takeaquiz/result}" th:object = "${question}">
 <ol>
 
   <div th:each="question : ${questions}">
 
       <li th:text="${question.getQuiz()}"></li>
 
-      <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice1()}" th.id = "${question.getChoice1()}" />
+      <input type="radio" th:name="${ question.getId() }" th:value= "${question.getChoice1()}" />
       <label th:for="${question.getChoice1()}" th:text="${question.getChoice1()}"></label>
 
-        <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice2()}" th.id = "${question.getChoice2()}"/>
+        <input type="radio" th:name="${ question.getId() }" th:value= "${question.getChoice2()}"/>
         <label th:for="${question.getChoice2()}" th:text="${question.getChoice2()}"></label>
 
-        <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice3()}" th.id = "${question.getChoice3()}"/>
+        <input type="radio" th:name="${ question.getId() }" th:value= "${question.getChoice3()}"/>
         <label th:for="${question.getChoice3()}" th:text="${question.getChoice3()}"></label>
 
-      <input type="radio" th:name="${question.getId()}" th:value= "${question.getChoice4()}" th.id = "${question.getChoice4()}"/>
+      <input type="radio" th:name="${ question.getId() }" th:value= "${question.getChoice4()}" />
       <label th:for="${question.getChoice4()}" th:text="${question.getChoice4()}"></label>
 
-      <input type="hidden" name="answer" th:value="${question.getAnswer()}" th.id ="${question.getAnswer()}" />
-
-
+     <!-- <input type="hidden" th:name="answers" th:value= "${question.getAnswer()}"/>
+-->
   </div>
 </ol>
 
