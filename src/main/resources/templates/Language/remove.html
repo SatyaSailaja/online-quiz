@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
+<body class="container" background="/css/Blog-background.png">
 
 <!--
 <nav th:replace="fragments :: navigation"></nav>
 -->
 
-<nav class="user-nav">
+<nav class="user-nav" style="display: inline-block;" float = "right;">
 
 
     <a href="/home">Home</a> |
@@ -15,7 +15,7 @@
     <a href="/question">Quiz Questions</a>  |
     <a href="/takeaquiz">Take A Quiz</a>   |
     <a href="/logout">Log Out</a>    |
-    <p>Logged in as <span th:text="${user.username}"></span></p>
+    <p>Logged in as <span  style="color:red" th:text="${user.username}"></span></p>
 
 </nav>
 

@@ -9,37 +9,81 @@ table, th, td {
 
 <body class="container" background="/css/Blog-background.png">
 
-<nav class="user-nav">
+<nav class="user-nav" style="display: inline-block;" float = "right;">
     <a href="/home">Home</a> |
     <a href="/language">Quiz Topics</a> |
     <a href="/question">Quiz Questions</a>  |
     <a href="/takeaquiz">Take A Quiz</a>   |
     <a href="/logout">Log Out</a>    |
-    <p>Logged in as <span th:text="${user.username}"></span></p>
+    <p>Logged in as <span style="color:red" th:text="${user.username}"></span></p>
 </nav>
-
 
 
 <!--<h2 th:text="${title}">Default Title</h2>-->
 
 <h2 th:text="${count}"></h2>
+<table border="1" style="display: inline-block;">
 
-<h4><p> <span th:text="${user.username}"></span> Choices</p></h4>
+    <tr>
+        <th>Quiz Questions</th>
+
+         </tr>
+    <div th:each="quizQuestion : ${quizQuestions}">
+
+<tr>
+            <td><span th:text="${quizQuestion}"></span></td>
+
+        </tr>
+    </div>
+</table>
+
+
+
+<table border="1" style="display: inline-block;">
+
+    <tr>
+        <th><p><span th:text="${user.username}"></span> Choices</p></th>
+
+    </tr>
+    <div th:each="choice : ${choices}">
+    <tr>
+        <td><span th:text="${choice.value}"></span></td>
+
+    </tr>
+    </div>
+</table>
+
+
+<table border="1" style="display: inline-block;">
+
+    <tr>
+        <th>Actual Answers</th>
+
+    </tr>
+    <div th:each="questionSet : ${questionSets}">
+        <tr>
+            <td><span th:text="${questionSet.value}"></span></td>
+
+        </tr>
+    </div>
+</table>
+
+<!--<h4><p> <span th:text="${user.username}"></span> Choices</p></h4>
   <div th:each="choice : ${choices}">
-     <!-- <span th:text="${choice.key}"></span>-->
+     &lt;!&ndash; <span th:text="${choice.key}"></span>&ndash;&gt;
 
       <span th:text="${choice.value}"></span>
-  </div>
+  </div>-->
 
-<h4> Actual Answers </h4>
+<!--<h4> Actual Answers </h4>
 <div th:each="questionSet : ${questionSets}">
-    <!-- <div th:text="${questionSet.key}"></div>-->
+    &lt;!&ndash; <div th:text="${questionSet.key}"></div>&ndash;&gt;
     <div th:text="${questionSet.value}"></div>
 </div>
 
 <div th:each="quizQuestion : ${quizQuestions}">
 
     <div th:text="${quizQuestion}"></div>
-</div>
+</div>-->
 </body>
 </html>

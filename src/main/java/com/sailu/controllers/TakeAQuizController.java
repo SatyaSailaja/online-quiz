@@ -66,6 +66,7 @@ public class TakeAQuizController extends AbstractController {
         List<String> quizQuestions = new ArrayList<String>();
 
         int count = 0;
+        int j =0;
 
 
        for (String stringKey : choices.keySet()) {
@@ -84,9 +85,11 @@ public class TakeAQuizController extends AbstractController {
                 count++;
 
             }
-        }
+             j = quizQuestions.size();
 
-        model.addAttribute("count","Score :" + count +"/5");
+        }
+        System.out.println(j);
+        model.addAttribute("count","Score :" + count +"/"+j);
         model.addAttribute("choices",choices);
         model.addAttribute("questionSets",questionSets);
         model.addAttribute("quizQuestions",quizQuestions);
